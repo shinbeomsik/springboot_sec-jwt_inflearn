@@ -31,12 +31,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/user/**").authenticated() //인증만 되면 들어갈수 있는 주소!
 			.antMatchers("/manager/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')")
 			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-			.anyRequest().permitAll()
+			.anyRequest().permitAll() // 저 위에있는 권한 외에는  모두  \\permitAll() 은 모든 사용자의 접근을 허용
 			.and()  // 만약 접근 권한이 없다면 로그인페이지로 돌아간다.
 			.formLogin()//
 			.loginPage("/loginForm")// 여기까지가 로그인페이지로 돌아가게하는방법
 					// 	└이 페이지에 와서 로그인을 한다면 ===> 1번
-			// 만약 loginForm.html에 있는  name="username" 을 다른거로 바꾼다면
+			// 만약 loginForm.html에 있는  name="username" 을 다른거로 바꾸고 싶다면
 			// .usernameParameter("바꾼 이름") 으로 설정하면 된다.
 			.loginProcessingUrl("/login") //login 주소가 호출이 되면 시큐리티가 낚아채서 대신 로그인진행
 			.defaultSuccessUrl("/") //이 특정 페이지로 보내줌

@@ -46,7 +46,6 @@ public class PrincipalDetails implements UserDetails ,OAuth2User {
 			
 			@Override
 			public String getAuthority() {
-				// TODO Auto-generated method stub
 				return user.getRole();
 			}
 		});
@@ -55,7 +54,7 @@ public class PrincipalDetails implements UserDetails ,OAuth2User {
 
 	@Override
 	public String getPassword() {
-		return user.getPassword();
+		return user.getPassword(); //user 객체의 해시화된 비밀번호를 반환
 	}
 
 	@Override

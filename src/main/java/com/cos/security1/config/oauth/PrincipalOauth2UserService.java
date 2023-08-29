@@ -14,7 +14,7 @@ import com.cos.security1.repository.UserRepository;
 
 @Service
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService{
-	
+	 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
